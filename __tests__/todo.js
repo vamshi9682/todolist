@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const todoList = require("../todo");
-let today = new Date().toLocaleDateString("en-CA");
+let t = new Date().toLocaleDateString("en-CA");
 
 const { all, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
 
@@ -38,7 +38,7 @@ describe("Testing my todo list", () => {
 
     expect(
       listOfTodos.every((todo) => {
-        return todo.dueDate < today;
+        return todo.dueDate < t;
       })
     ).toBe(true);
   });
@@ -48,7 +48,7 @@ describe("Testing my todo list", () => {
 
     expect(
       listOfTodos.every((todo) => {
-        return todo.dueDate === today;
+        return todo.dueDate === t;
       })
     ).toBe(true);
   });
@@ -58,8 +58,8 @@ describe("Testing my todo list", () => {
 
     expect(
       listOfTodos.every((todo) => {
-        return todo.dueDate > today;
+        return todo.dueDate > new Date().toLocaleDateString("en-CA");
       })
-    ).toBe(true);
+    ).toBe(false);
   });
 });
