@@ -43,7 +43,7 @@ describe("Testing my todo list", () => {
     ).toBe(true);
   });
 
-  test("A test that checks retrieval of all todos that are dueToday", () => {
+  test("A test that checks retrieval ofall todos that are dueToday", () => {
     let listOfTodos = dueToday();
 
     expect(
