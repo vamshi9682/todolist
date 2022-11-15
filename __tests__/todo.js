@@ -43,7 +43,7 @@ describe("Testing my todo list", () => {
     ).toBe(true);
   });
 
-  test("A test that checks retrieval ofall todos that are dueToday", () => {
+  test("A test that checks retrieval of all todos that are dueToday", () => {
     let listOfTodos = dueToday();
 
     expect(
@@ -58,8 +58,8 @@ describe("Testing my todo list", () => {
 
     expect(
       listOfTodos.every((todo) => {
-        return todo.dueDate > new Date().toLocaleDateString("en-CA");
+        return todo.dueDate > t;
       })
-    ).toBe(false);
+    ).toBe(true);
   });
 });
