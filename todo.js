@@ -8,22 +8,25 @@ const todoList = () => {
   const markAsComplete = (index) => {
     all[index].completed = true;
   };
-
+  const today = new Date();
+  const oneDay = 60 * 60 * 24 * 1000;
+  const yesterday = new Date(today.getTime() - 1 * oneDay);
+  const tomorrow = new Date(today.getTime() + 1 * oneDay);
   const overdue = () => {
     return all.filter((todo) => {
-      return todo.dueDate < new Date().toISOString().split("T")[0];
+      return todo.dueDate <= yesterday;
     });
   };
 
   const dueToday = () => {
     return all.filter((todo) => {
-      return todo.dueDate === new Date().toISOString().split("T")[0];
+      return todo.dueDate === today;
     });
   };
 
   const dueLater = () => {
     return all.filter((todo) => {
-      return todo.dueDate > new Date().toISOString().split("T")[0];
+      return todo.dueDate >= tomorrow;
     });
   };
 
